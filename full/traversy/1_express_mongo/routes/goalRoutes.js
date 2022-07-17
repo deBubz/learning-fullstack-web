@@ -4,18 +4,18 @@ const router = express.Router();
 const {
     getGoals,
     createGoals,
-    updateGoals,
-    deleteGoals
+    deleteGoals,
+    setGoals
 } = require('../controllers/goalController')
 
 // GET: /api/goals
 router.get('/', getGoals);
 
 // POST: /api/goals
-router.post('/', createGoals)
+router.post('/', setGoals)
 
 // put: /api/goals
-router.put('/:id', updateGoals)
+router.put('/:id', setGoals)
 
 // GET: /api/goals
 router.delete('/:id', deleteGoals)
