@@ -18,7 +18,7 @@ router.post('/', setGoals)
 // put: /api/goals
 router.put('/:id', updateGoals)
 
-// GET: /api/goals
+// delete: /api/goals
 router.delete('/:id', deleteGoals)
 
 // shorthand api calls for same routes
