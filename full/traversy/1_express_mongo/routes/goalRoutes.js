@@ -5,7 +5,8 @@ const {
     getGoals,
     createGoals,
     deleteGoals,
-    setGoals
+    setGoals,
+    updateGoals
 } = require('../controllers/goalController')
 
 // GET: /api/goals
@@ -15,7 +16,7 @@ router.get('/', getGoals);
 router.post('/', setGoals)
 
 // put: /api/goals
-router.put('/:id', setGoals)
+router.put('/:id', updateGoals)
 
 // GET: /api/goals
 router.delete('/:id', deleteGoals)

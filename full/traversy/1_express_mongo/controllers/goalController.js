@@ -7,7 +7,7 @@ const Goal = require("../models/goalModel");
  */
 const getGoals = asyncHandler(async (req, res) => {
     const goals = await Goal.find();
-
+    console.log(`Get all goals`.green);
     res.status(200).json({ goals: goals,  msg: "get goals"});
 });
 
@@ -24,6 +24,7 @@ const setGoals = asyncHandler(async (req, res) => {
     const newGoal = await Goal.create({
         text: req.body.text
     })
+    console.log(`NewGoalCreated`.green);
     res.status(200).json({ goal: newGoal, msg: `post goals `});
 });
 
@@ -32,6 +33,7 @@ const setGoals = asyncHandler(async (req, res) => {
  * @route   PUT /api/goals 
  */
 const updateGoals = asyncHandler(async (req, res) => {
+    console.log(`updating ${req.params.id}`.green)
     const goal = await Goal.findById(req.params.id);
     if(!goal){
         res.status(400);
@@ -39,7 +41,7 @@ const updateGoals = asyncHandler(async (req, res) => {
     }
 
     const updatedGoal = await Goal.findByIdAndUpdate(
-        req.param.id,
+        req.params.id,
         req.body,
         { new: false }
     );
